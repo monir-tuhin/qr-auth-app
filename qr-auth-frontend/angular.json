@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Angular11JwtAuth": {
+    "qr-auth-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Angular11JwtAuth",
+            "outputPath": "dist/qr-auth-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -41,6 +41,33 @@
             ]
           },
           "configurations": {
+            "prod": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "3mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kb",
+                  "maximumError": "6kb"
+                }
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -73,18 +100,21 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Angular11JwtAuth:build"
+            "browserTarget": "qr-auth-frontend:build"
           },
           "configurations": {
+            "prod": {
+              "browserTarget": "qr-auth-frontend:build:prod"
+            },
             "production": {
-              "browserTarget": "Angular11JwtAuth:build:production"
+              "browserTarget": "qr-auth-frontend:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Angular11JwtAuth:build"
+            "browserTarget": "qr-auth-frontend:build"
           }
         },
         "test": {
@@ -121,18 +151,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Angular11JwtAuth:serve"
+            "devServerTarget": "qr-auth-frontend:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Angular11JwtAuth:serve:production"
+              "devServerTarget": "qr-auth-frontend:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "Angular11JwtAuth",
+  "defaultProject": "qr-auth-frontend",
   "cli": {
     "analytics": "5174479f-6b8d-4ada-a08b-cd83abd7e9de"
   }

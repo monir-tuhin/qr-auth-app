@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://vinglobalbd.com/backend/api',
+  baseUrl: 'http://50.16.148.48:8080/api',
 };

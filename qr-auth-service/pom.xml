@@ -110,12 +110,12 @@
 			<artifactId>postgresql</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>co.qrcode.report-fonts</groupId>
-			<artifactId>Nikosh</artifactId>
-			<version>1.0.1</version>
-			<scope>runtime</scope>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>co.qrcode.report-fonts</groupId>-->
+<!--			<artifactId>Nikosh</artifactId>-->
+<!--			<version>1.0.1</version>-->
+<!--			<scope>runtime</scope>-->
+<!--		</dependency>-->
 
 		<dependency>
 			<groupId>com.querydsl</groupId>
@@ -190,7 +190,7 @@
 
 
 	<build>
-		<finalName>qr-code-generation</finalName>
+		<finalName>qr-auth-service</finalName>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>

@@ -12,5 +12,6 @@
 #docker-compose rm; # remove all container of docker compose
 
 docker-compose down --rmi all # stop and remove containers and images
-docker-compose up -d --build
+git pull origin main
+COMPOSE_BAKE=true docker-compose up -d --build
 

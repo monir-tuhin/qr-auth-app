@@ -1,9 +1,9 @@
 services:
   backend:
-    image: monirzaman/qr-code-scan-backend
-    container_name: qr-code-scan-backend
+    image: monirzaman/qr-auth-service
+    container_name: qr-auth-service
     build:
-      context: ./AuthentiScan-Backend
+      context: ./qr-auth-service
     ports:
       - '8080:8080'
     environment:
@@ -12,10 +12,10 @@ services:
       - test-network
 
   frontend:
-    image: monirzaman/qr-code-scan-frontend
-    container_name: qr-code-scan-frontend
+    image: monirzaman/qr-auth-frontend
+    container_name: qr-auth-frontend
     build:
-      context: ./AuthentiScan-Angular
+      context: ./qr-auth-frontend
     ports:
       - '8081:80'
     depends_on:

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="qr_code" columnCount="6" pageWidth="595" pageHeight="842" columnWidth="90" leftMargin="25" rightMargin="25" topMargin="10" bottomMargin="20" whenResourceMissingType="Error" uuid="6be48888-ef7a-46f2-beaf-7a86be1d4493">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<subDataset name="qrCodeDataList" uuid="879533f8-aa06-4565-890f-2a3d3aa15492">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="scanUrl" class="java.lang.String"/>
+		<field name="sl" class="java.lang.Integer"/>
+		<field name="uid" class="java.lang.String"/>
+		<field name="brandKey" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="qrDataList" class="java.util.Collection"/>
+	<detail>
+		<band height="78" splitType="Stretch">
+			<componentElement>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="89" height="78" uuid="15178a71-2feb-4301-bcb5-c9f32fc82ee7"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="qrCodeDataList" uuid="2bfb0422-a078-43fd-aeff-d6521fa21062">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{qrDataList})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="78" width="89">
+						<frame>
+							<reportElement mode="Opaque" x="0" y="0" width="89" height="77" uuid="8c73eb1a-a795-465f-9f75-03c4e1fbc3a3"/>
+							<box topPadding="2" leftPadding="0" bottomPadding="2" rightPadding="0">
+								<pen lineWidth="0.0"/>
+							</box>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="47" width="89" height="3" uuid="ecfb34ed-497f-4ce6-8f12-2a5b88fa8efa">
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</reportElement>
+								<textElement textAlignment="Center" verticalAlignment="Top">
+									<font fontName="SansSerif" size="6"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{uid}]]></textFieldExpression>
+							</textField>
+							<componentElement>
+								<reportElement stretchType="RelativeToTallestObject" mode="Transparent" x="25" y="11" width="36" height="36" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#FFFFFF" uuid="9382ee70-4307-423e-a873-f821af99bdcc"/>
+								<jr:QRCode>
+									<jr:codeExpression><![CDATA["https://vinglobalbd.com/#/verify?uid="+$F{uid}]]></jr:codeExpression>
+								</jr:QRCode>
+							</componentElement>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="1" width="89" height="1" uuid="fa651c3b-86a0-4008-8fc9-b8cbcd501bc4">
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</reportElement>
+								<textElement textAlignment="Center" verticalAlignment="Top">
+									<font fontName="Nikosh" size="6"/>
+								</textElement>
+								<textFieldExpression><![CDATA["ভিনি কসমেটিকস এর আসল পণ্য"]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="6" width="89" height="3" uuid="16d23959-4209-48f3-945a-a33908650f8c">
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</reportElement>
+								<textElement textAlignment="Center" verticalAlignment="Top">
+									<font fontName="Nikosh" size="6"/>
+								</textElement>
+								<textFieldExpression><![CDATA["যাচাই করতে নিচে স্ক্র্যাচ করুন"]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement x="0" y="70" width="89" height="3" uuid="77de8f17-b422-4962-8d5a-f49996435602">
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</reportElement>
+								<textElement textAlignment="Center" verticalAlignment="Top">
+									<font fontName="SansSerif" size="6"/>
+								</textElement>
+								<textFieldExpression><![CDATA["+8801992056100"]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement stretchType="RelativeToBandHeight" x="2" y="58" width="84" height="5" uuid="c01dd8ed-cf78-44f4-85a9-bbecd8a0dbf6">
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</reportElement>
+								<textElement textAlignment="Center" verticalAlignment="Top" markup="styled">
+									<font fontName="Nikosh" size="6"/>
+									<paragraph lineSpacing="Single" lineSpacingSize="0.0"/>
+								</textElement>
+								<textFieldExpression><![CDATA["উপরের কোডটি নিচের নম্বরে "]]></textFieldExpression>
+							</textField>
+							<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+								<reportElement stretchType="RelativeToBandHeight" x="2" y="63" width="84" height="5" uuid="041bfbaa-2c68-40f4-b59f-2170f00d9c60">
+									<property name="com.jaspersoft.studio.unit.height" value="px"/>
+								</reportElement>
+								<textElement textAlignment="Center" verticalAlignment="Top" markup="styled">
+									<font fontName="Nikosh" size="6"/>
+									<paragraph lineSpacing="Single" lineSpacingSize="0.0"/>
+								</textElement>
+								<textFieldExpression><![CDATA["এসএমএস করুন"]]></textFieldExpression>
+							</textField>
+							<textField isBlankWhenNull="true">
+								<reportElement x="62" y="11" width="12" height="35" uuid="22ac4567-0498-4b07-8cc3-c23ef727502a"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+									<font size="6"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{brandKey}]]></textFieldExpression>
+							</textField>
+						</frame>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="10" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="460" y="0" width="85" height="10" uuid="25f738b3-5a6f-49fd-bf7b-95822336d41c"/>
+				<textElement textAlignment="Right">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["page "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

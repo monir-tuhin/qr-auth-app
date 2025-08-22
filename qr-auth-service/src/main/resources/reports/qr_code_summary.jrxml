@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="stock-report" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e014a067-0b2a-404f-816c-c3769644b9fa">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<subDataset name="Dataset1" uuid="6d182137-8247-41c6-82e2-7b3645e1ccf0">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="itemBarcode" class="java.lang.String"/>
+		<field name="itemName" class="java.lang.String"/>
+		<field name="uom" class="java.lang.String"/>
+		<field name="currentStock" class="java.lang.Double"/>
+		<field name="totalIssueQty" class="java.lang.Double"/>
+		<group name="grp">
+			<groupExpression><![CDATA[$F{itemBarcode}]]></groupExpression>
+		</group>
+	</subDataset>
+	<parameter name="companyTitle" class="java.lang.String"/>
+	<parameter name="reportTitle" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="uid" class="java.lang.String"/>
+	<field name="createdAtFormatted" class="java.lang.String"/>
+	<field name="verificationScanStatus" class="java.lang.String"/>
+	<field name="verificationSmsStatus" class="java.lang.String"/>
+	<field name="qrVerificationCountScan" class="java.lang.Integer"/>
+	<field name="qrVerificationCountSms" class="java.lang.Integer"/>
+	<field name="lastQrVerificationScanAtFormatted" class="java.lang.String"/>
+	<field name="lastQrVerificationSmsAtFormatted" class="java.lang.String"/>
+	<field name="brandKey" class="java.lang.String"/>
+	<title>
+		<band height="94" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="0" y="5" width="553" height="30" uuid="2d656b1f-5094-46b5-86b3-a1fd6adf79be"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="17" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyTitle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="37" width="554" height="30" uuid="f1d39f17-00be-4104-bb66-322c0d33993a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportTitle}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="7" y="73" width="537" height="1" uuid="dfdcf206-8628-4909-9e83-cb1564b696b9"/>
+			</line>
+		</band>
+	</title>
+	<detail>
+		<band height="137">
+			<staticText>
+				<reportElement x="0" y="3" width="60" height="18" uuid="1179aa46-2890-4914-9919-c43d4db6a12b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qr Code:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="3" width="70" height="18" uuid="3abcf49a-6141-4ea0-8f22-9f127f68b445"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Created At:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="60" y="3" width="106" height="18" uuid="779efb66-f2e7-4c3f-968c-bfa536282e53"/>
+				<textFieldExpression><![CDATA[$F{uid}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="404" y="3" width="150" height="18" uuid="92a04de1-c7bf-44f7-a3cc-fa11a2d0baf5"/>
+				<textFieldExpression><![CDATA[$F{createdAtFormatted}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="160" y="24" width="120" height="18" uuid="4e011ba6-d610-44b8-a8f6-547eeed4e55e"/>
+				<textFieldExpression><![CDATA[$F{verificationScanStatus}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="24" width="160" height="18" uuid="7cc25ba0-9b0e-4ad8-b941-5e3690a9de89"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qr Scan Verification Status:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="440" y="24" width="115" height="18" uuid="fabb8055-c24c-471c-bade-98a49162e0b5"/>
+				<textFieldExpression><![CDATA[$F{verificationSmsStatus}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="280" y="24" width="160" height="18" uuid="f1d055d3-3f2d-4023-893b-dfecda81e7cb"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qr SMS Verification Status:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="160" y="46" width="120" height="18" uuid="6c32f982-69f5-4020-81ab-171f239da0ba"/>
+				<textFieldExpression><![CDATA[$F{qrVerificationCountScan}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="46" width="160" height="18" uuid="3225cd1a-b09d-46c2-b808-e99583f31f4b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qr Scan Verification Count:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="440" y="46" width="115" height="18" uuid="0874af76-7cfe-4082-b3f0-e28ccb449d2b"/>
+				<textFieldExpression><![CDATA[$F{qrVerificationCountSms}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="280" y="46" width="160" height="18" uuid="84246b6e-2ccd-402f-9a9d-b049a1d7889d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qr SMS Verification Count:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="160" y="68" width="120" height="18" uuid="c1023013-3b7a-4cdc-9357-1455c7e24295"/>
+				<textFieldExpression><![CDATA[$F{lastQrVerificationScanAtFormatted}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="68" width="160" height="18" uuid="ab699bf6-6e33-4739-afd0-f80a2eeebcc2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Last Scan Verification At:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="440" y="68" width="115" height="18" uuid="94fa9062-9e26-43d9-88ca-1f75fa0ccc59"/>
+				<textFieldExpression><![CDATA[$F{lastQrVerificationSmsAtFormatted}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="280" y="68" width="160" height="18" uuid="edbb785e-381b-4891-8cc0-8d11f534685e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Last SMS Verification At:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="236" y="3" width="98" height="18" uuid="77821539-f268-4052-af05-f34a3568f153"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{brandKey}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="166" y="3" width="70" height="18" uuid="6c56b774-68a8-4dae-9455-0e0d80b829d7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Brand Key:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="31">
+			<textField>
+				<reportElement x="0" y="11" width="230" height="13" uuid="5d627665-4118-4a5d-97b9-af21db2f1330">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" Printing Date & Time : "+new SimpleDateFormat("dd/MM/yyyy hh:mm a").format(new Date())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="424" y="11" width="65" height="13" uuid="dda298e6-097a-4086-82c1-20e54f00806c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="489" y="11" width="65" height="13" uuid="05b7b52f-ad9a-4adb-a163-bbf9c783c7b6">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="7" width="553" height="2" uuid="dd1962b2-8e3f-4cc8-b512-00202b589a92">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+		</band>
+	</pageFooter>
+</jasperReport>

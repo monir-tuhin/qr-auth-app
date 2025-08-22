@@ -1,0 +1,74 @@
+<div class="ml-4 mr-4">
+  <h4 class="text-center mt-2">Qr Verification History</h4><hr>
+
+  <div class="card card-body">
+    <form [formGroup]="searchFg">
+      <div class="pull-right col-md-6 col-sm-12 input-group mb-3">
+        <input type="text" class="form-control" formControlName="searchTerm"
+               (keyup.enter)="onSearch({offset: 0})" placeholder="Search...">
+        <div class="input-group-append">
+          <button class="btn btn-info" (click)="onSearch({offset: 0})" type="button">Search</button>
+          <button class="btn btn-warning" (click)="onResetSearch()" type="button">Reset</button>
+        </div>
+      </div>
+    </form>
+
+    <mat-progress-bar *ngIf="isLoadingPage"  mode="query"></mat-progress-bar>
+    <table class="table table-hover table-sm" style="font-size: 14px">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Code</th>
+        <th scope="col">Brand key</th>
+        <th scope="col">QR Verification Status</th>
+        <th scope="col">QR Count</th>
+        <th scope="col">Last Scan Verification Date</th>
+        <th scope="col">SMS Verification Status</th>
+        <th scope="col">SMS Count</th>
+        <th scope="col">Last SMS Verification Date</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of page.content; let i=index">
+        <th scope="row">{{ (i + 1) + (page.number) * page.size }}</th>
+        <td>{{ item.uid }}</td>
+        <td>{{ item.brandKey }}</td>
+        <td>{{ item.verificationScanStatusEnum }}</td>
+        <td>{{ item.qrVerificationCountScan || 0 }}</td>
+        <td>{{ item.lastQrVerificationScanAtFormatted}}</td>
+        <td>{{ item.verificationSmsStatusEnum }}</td>
+        <td>{{ item.qrVerificationCountSms || 0 }}</td>
+        <td>{{ item.lastQrVerificationSmsAtFormatted}}</td>
+        <td>
+          <button type="button" class="btn btn-sm btn-primary" title="QR Summary"
+                 [disabled]="item.isLoading" (click)="printQrCodeSummary(item)">
+            <i *ngIf="item.isLoading" class="fa fa-spinner fa-spin"></i>
+            <i *ngIf="!item.isLoading" class="fa fa-print"></i> Print
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div class="row justify-content-between">
+      <div *ngIf="page.totalElements > 10" class="ml-lg-3">
+											<span id="tableFooterHelpBlock" class="form-text text-muted">Showing {{ page.begSerial }}
+                        to {{ page.endSerial }} of {{ page.totalElements }} entries</span>
+      </div>
+      <div *ngIf="page.totalElements > 10">
+         <pagination [itemsPerPage]="10"
+                     [boundaryLinks]="true"
+                     previousText="&lsaquo;"
+                     nextText="&rsaquo;"
+                     firstText="&laquo;"
+                     lastText="&raquo;"
+                     [totalItems]="page.totalElements"
+                     [rotate]="page.rotate"
+                     [maxSize]="page.size"
+                     (pageChanged)="onPageChanged($event)">
+         </pagination>
+      </div>
+    </div>
+  </div>
+
+</div>

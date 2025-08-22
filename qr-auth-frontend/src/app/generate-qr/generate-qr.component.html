@@ -1,0 +1,73 @@
+<div class="container">
+  <h4 class="text-center mt-2">Generate QR Code</h4>
+  <div class="row mt-4">
+    <div class="col-md-6 col-sm-12">
+      <div class="row">
+        <div class="col-md-9 col-sm-9">
+          <div class="input-group">
+            <!-- Select Dropdown -->
+            <div class="input-group-prepend">
+              <span class="input-group-text">Brand</span>
+            </div>
+            <select class="form-control" name="options" [formControl]="brand">
+              <option value="">Select Brand</option>
+              <option *ngFor="let brand of brandEnumList" [value]="brand.enumKey">
+                {{ brand.enumValue }}
+              </option>
+            </select>
+            <!-- Input Field -->
+            <input type="number" class="form-control" id="count" placeholder="Input Count" [formControl]="count">
+          </div>
+        </div>
+        <!-- Right Section: Button -->
+        <div class="col-md-3 col-sm-3">
+          <button type="button" class="btn btn-primary w-100" [disabled]="!count.value || isGenerated" (click)="generateQrCode()">
+            <i *ngIf="isGenerated" class="fa fa-spinner fa-spin"></i>
+            <span *ngIf="!isGenerated">Generate</span>
+          </button>
+        </div>
+      </div>
+      <div *ngIf="isGenerated" class="text-danger mt-2" style="font-size: 13px">Please wait, it will take some time ....</div>
+    </div>
+    <div class="card p-2 col-md-6 col-sm-12">
+      <div class="d-flex justify-content-between border-bottom mb-3">
+        <p style="font-weight: 500" class="mb-1">Generated QR Code Summary: </p>
+        <div>
+          <button type="button" class="btn btn-primary" [disabled]="isSummary" (click)="generatedQrCodeSummary()">
+            <i *ngIf="isSummary" class="fa fa-spinner fa-spin"></i>
+            <i *ngIf="!isSummary" class="fa fa-refresh"></i>
+          </button>
+        </div>
+      </div>
+      <div class="mb-2">Total QR Code: <span class="badge badge-success summary-style">
+        {{qrCodeSummaryResponse?.totalQrCode || 0}}</span></div>
+      <div class="mb-2">Today's QR Code: <span class="badge badge-success summary-style">
+        {{qrCodeSummaryResponse?.todayQrCode || 0}}</span></div>
+      <div class="mb-2">Last QR Code Created At: <span class="badge badge-success summary-style">
+        {{qrCodeSummaryResponse?.lastQrCodeCreatedDateFormatted}}</span></div>
+      <div class="mb-2">Last QR Code Count: <span class="badge badge-success summary-style">
+        {{qrCodeSummaryResponse?.lastQrCodeCount}}</span></div>
+    </div>
+  </div>
+  <hr>
+  <h4 class="text-center mt-4">QR Code Print</h4>
+  <div class="row mt-4">
+    <div class="col-md-3 col-sm-4">
+      <input type="number" class="form-control" id="countFrom" placeholder="Count From"
+             [formControl]="countFrom">
+    </div>
+    <div class="col-md-3 col-sm-4">
+      <input type="number" class="form-control" id="countTo" placeholder="Count To"
+             [formControl]="countTo">
+    </div>
+    <div class="col-md-3 col-sm-4">
+      <button type="button" class="btn btn-primary"
+              [disabled]="!countFrom.value || !countTo.value || isPrintQrCode"
+              (click)="printQrCode()">
+        <i *ngIf="isPrintQrCode" class="fa fa-spinner fa-spin"></i> PDF Print
+      </button>
+    </div>
+  </div>
+  <div *ngIf="isPrintQrCode" class="text-danger mt-2" style="font-size: 13px">Please wait, it will take some time ....</div>
+
+</div>

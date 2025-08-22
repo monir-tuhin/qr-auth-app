@@ -1,0 +1,89 @@
+<div class="container">
+  <h4 class="text-center mt-2">QR Code Validation</h4><hr>
+  <form [formGroup]="searchFg">
+    <div class="row">
+      <!-- UID -->
+      <div class="col-md-4">
+        <label for="uid" class="form-label">UID</label>
+        <input type="text" id="uid" class="form-control form-control-sm" formControlName="uid">
+      </div>
+
+      <!-- Validation Method -->
+      <div class="col-md-4">
+        <label for="validationMethod" class="form-label">Method</label>
+        <select id="validationMethod" class="form-control form-control-sm" formControlName="validationMethodsEnum">
+          <option [value]="null">--Select--</option>
+          <option *ngFor="let method of validationMethodsEnumList" [value]="method.enumKey">{{ method.enumKey }}</option>
+        </select>
+      </div>
+
+      <!-- Validation Status -->
+      <div class="col-md-4">
+        <label for="validationStatus" class="form-label">Status</label>
+        <select id="validationStatus" class="form-control form-control-sm" formControlName="validationStatusEnum">
+          <option [value]="null">--Select--</option>
+          <option *ngFor="let status of validationStatusEnumList" [value]="status.enumKey">{{ status.enumKey }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <!-- Mobile Number -->
+    <!--  <div class="col-md-4">
+        <label for="mobileNumber" class="form-label">Mobile Number</label>
+        <input type="text" id="mobileNumber" class="form-control form-control-sm" formControlName="mobileNumber">
+      </div>
+-->
+      <!-- Validation Date -->
+      <!--<div class="col-md-4">
+        <label for="validationDate" class="form-label">Validation Date</label>
+        <input type="date" id="validationDate" class="form-control form-control-sm" formControlName="validationDate">
+      </div>-->
+
+      <!-- Week -->
+      <div class="col-md-4">
+        <label for="weekEnum" class="form-label">Week</label>
+        <select id="weekEnum" class="form-control form-control-sm" formControlName="weekEnum">
+          <option [value]="null">--Select--</option>
+          <option *ngFor="let week of weekEnumList" [value]="week.enumKey">{{ week.enumKey }}</option>
+        </select>
+      </div>
+
+      <!-- Month -->
+      <div class="col-md-4">
+        <label for="month" class="form-label">Month</label>
+        <select id="month" class="form-control form-control-sm" formControlName="month">
+          <option [value]="null">--Select--</option>
+          <option *ngFor="let month of monthList" [value]="month">{{ month }}</option>
+        </select>
+      </div>
+
+      <!-- Quarter -->
+      <div class="col-md-4">
+        <label for="quarterEnum" class="form-label">Quarter</label>
+        <select id="quarterEnum" class="form-control form-control-sm" formControlName="quarterEnum">
+          <option [value]="null">--Select--</option>
+          <option *ngFor="let quarter of quarterEnumList" [value]="quarter.enumKey">{{ quarter.enumKey }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <!-- Year -->
+      <div class="col-md-4">
+        <label for="year" class="form-label">Year</label>
+        <input type="number" id="year" class="form-control form-control-sm" formControlName="year">
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <button class="btn btn-success mr-2" [disabled]="isDownloading" (click)="downloadExcel()">
+        <i *ngIf="!isDownloading" class="fa fa-file-excel-o"></i>
+        <i *ngIf="isDownloading" class="fa fa-spinner fa-spin"></i> Download Excel
+      </button>
+      <button type="button" class="btn btn-secondary ms-2" (click)="reset()">Reset</button>
+    </div>
+  </form>
+
+</div>
+

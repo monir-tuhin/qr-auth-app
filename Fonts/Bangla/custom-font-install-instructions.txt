@@ -1,0 +1,12 @@
+mvn install:install-file -Dfile=<segoeui.jar file path> -DgroupId=co.egeneration.report-fonts -DartifactId=segoeui -Dversion=1.0.0 -Dpackaging=jar
+mvn install:install-file -Dfile=<Nikosh.jar file path> -DgroupId=co.egeneration.report-fonts -DartifactId=Nikosh -Dversion=1.0.0 -Dpackaging=jar
+
+*********** For linux OS with maven version 3.5+ ***************
+
+mvn install:install-file -Dfile=segoeui.jar -DgroupId=co.qrcode.report-fonts -DartifactId=segoeui -Dversion=1.0.1 -Dpackaging=jar && 
+mvn install:install-file -Dfile=Nikosh.jar -DgroupId=co.qrcode.report-fonts -DartifactId=Nikosh -Dversion=1.0.1 -Dpackaging=jar
+
+*********** For win OS with maven version 3.5+ ***************
+mvn install:install-file "-Dfile=C:\eGen\Custom-font\segoeui.jar" "-DgroupId=co.egeneration.report-fonts" "-DartifactId=segoeui" "-Dversion=1.0.0" "-Dpackaging=jar"
+mvn install:install-file "-Dfile=C:\eGen\Custom-font\Nikosh.jar" "-DgroupId=co.egeneration.report-fonts" "-DartifactId=Nikosh" "-Dversion=1.0.0" "-Dpackaging=jar" 
+

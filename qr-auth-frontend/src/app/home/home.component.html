@@ -1,0 +1,127 @@
+<div class="welcome mb-3">
+  <!--<img class="company-logo"
+       src="https://www.viniinternational.com/wp-content/uploads/2022/02/website-logo-main.png"
+       alt="website-logo-main" loading="lazy">-->
+  <h3 class="p-2  text-info text-center">QR Summary Dashboard</h3>
+</div>
+
+
+<div class="row justify-content-between mb-4">
+  <div class="col-md-5">
+    <h6 class="text-center">Quarterly QR Status Summary</h6>
+    <div class="input-group pl-5 pr-5">
+      <select class="form-control form-control-sm" [formControl]="sQdQuarter">
+        <option [value]="''">--Select Quarter--</option>
+        <option *ngFor="let quarter of quarterEnumList" [value]="quarter.enumKey">{{ quarter.enumKey }}</option>
+      </select>
+      <input class="form-control form-control-sm input-group-append"
+             type="number" placeholder="Input Year..." [formControl]="sQdYear"/>
+      <button class="btn btn-sm btn-info input-group-append"
+              [disabled]="!sQdQuarter.value || !sQdYear.value"
+              (click)="searchQrStatusQuarterlyDashboard()"><i class="fa fa-refresh"></i></button>
+    </div>
+    <ngx-charts-bar-vertical
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="qrStatusSummaryQuarterly"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      [showDataLabel]="showDataLabel">
+    </ngx-charts-bar-vertical>
+  </div>
+  <div class="col-md-5">
+
+    <h6 class="text-center">Monthly QR Status Summary</h6>
+    <div class="input-group pl-5 pr-5">
+      <select class="form-control form-control-sm" [formControl]="sMdMonth">
+        <option [value]="''">--Select Month--</option>
+        <option *ngFor="let month of monthList" [value]="month">{{ month }}</option>
+      </select>
+      <input class="form-control form-control-sm input-group-append"
+             type="number" placeholder="Input Year..." [formControl]="sMdYear"/>
+      <button class="btn btn-sm btn-info input-group-append"
+              [disabled]="!sMdMonth.value || !sMdYear.value"
+              (click)="searchQrStatusMonthlyDashboard()"><i class="fa fa-refresh"></i></button>
+    </div>
+    <ngx-charts-bar-vertical
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="qrStatusSummaryMonthly"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      [showDataLabel]="showDataLabel">
+    </ngx-charts-bar-vertical>
+  </div>
+</div>
+
+<div class="row justify-content-between">
+  <div class="col-md-5">
+    <h6 class="text-center">Quarterly QR Methods Summary</h6>
+    <div class="input-group pl-5 pr-5">
+      <select class="form-control form-control-sm" [formControl]="mQdQuarter">
+        <option [value]="''">--Select Quarter--</option>
+        <option *ngFor="let quarter of quarterEnumList" [value]="quarter.enumKey">{{ quarter.enumKey }}</option>
+      </select>
+      <input class="form-control form-control-sm input-group-append"
+             type="number" placeholder="Input Year..." [formControl]="mQdYear"/>
+      <button class="btn btn-sm btn-info input-group-append"
+              [disabled]="!mQdQuarter.value || !mQdYear.value"
+              (click)="searchQrMethodsQuarterlyDashboard()"><i class="fa fa-refresh"></i></button>
+    </div>
+    <ngx-charts-bar-vertical
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="qrMethodsSummaryQuarterly"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="'Method'"
+      [yAxisLabel]="yAxisLabel"
+      [showDataLabel]="showDataLabel">
+    </ngx-charts-bar-vertical>
+  </div>
+  <div class="col-md-5">
+
+    <h6 class="text-center">Monthly QR Methods Summary</h6>
+    <div class="input-group pl-5 pr-5">
+      <select class="form-control form-control-sm" [formControl]="mMdMonth">
+        <option [value]="''">--Select Month--</option>
+        <option *ngFor="let month of monthList" [value]="month">{{ month }}</option>
+      </select>
+      <input class="form-control form-control-sm input-group-append"
+             type="number" placeholder="Input Year..." [formControl]="mMdYear"/>
+      <button class="btn btn-sm btn-info input-group-append"
+              [disabled]="!mMdMonth.value || !mMdYear.value"
+              (click)="searchQrMethodsMonthlyDashboard()"><i class="fa fa-refresh"></i></button>
+    </div>
+    <ngx-charts-bar-vertical
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="qrMethodsSummaryMonthly"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="'Method'"
+      [yAxisLabel]="yAxisLabel"
+      [showDataLabel]="showDataLabel">
+    </ngx-charts-bar-vertical>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+.welcome {
+  background: lightcyan;
+  color: black;
+}
+.company-logo {
+  max-width: 200px; /* Adjust size */
+  display: block;
+  margin: 0 auto;
+}

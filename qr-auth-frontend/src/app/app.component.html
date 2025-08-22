@@ -1,0 +1,90 @@
+<div *ngIf="isLoggedIn" id="app" class="cursor-pointer">
+  <nav class="navbar navbar-expand navbar-dark bg-dark" [ngClass]="isLoggedIn ? 'shrink-top-nav' : ''">
+    <a routerLink="/" class="navbar-brand ml-2">
+      <img width="110" height="55"
+           src="https://www.viniinternational.com/wp-content/uploads/2022/02/website-logo-main.png"
+           alt="website-logo-main" loading="lazy">
+    </a>
+
+    <!-- <ul class="navbar-nav mr-auto" routerLinkActive="active">
+       <li class="nav-item">
+         <a href="/home" class="nav-link" routerLink="home">Home </a>
+       </li>
+       <li class="nav-item" *ngIf="showAdminBoard">
+         <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+       </li>
+       <li class="nav-item" *ngIf="showModeratorBoard">
+         <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
+       </li>
+       <li class="nav-item">
+         <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
+       </li>
+     </ul>-->
+
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+        <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a href="/login" class="nav-link" routerLink="login">Login</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="profile">{{ username }}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div *ngIf="isLoggedIn" class="cursor-pointer">
+  <div class="sidebar" #sidebar (click)="onClickToggleNav()" [ngClass]="{'open':toogleNav}">
+    <div class="logo-details">
+      <i class="bx bxl-si-v icon"></i>
+      <div class="logo_name">Vini BD</div>
+      <i class="bx bx-menu" id="btn" #closeBtn></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+        <a href="#">
+          <i class="bx bx-pie-chart-alt-2"></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+        <span class="tooltip">Dashboard</span>
+      </li>
+      <li>
+        <a routerLink="/generate-qr">
+          <i class="bx bx-qr"></i>
+          <span class="links_name">Generate QR</span>
+        </a>
+        <span class="tooltip">Generate QR</span>
+      </li>
+      <li>
+        <a routerLink="/qr-verification-history">
+          <i class="bx bx-list-ol"></i>
+          <span class="links_name">History</span>
+        </a>
+        <span class="tooltip">History</span>
+      </li>
+      <li>
+        <a routerLink="/reports">
+          <i class="bx bx-cog"></i>
+          <span class="links_name">Reports</span>
+        </a>
+        <span class="tooltip">Reports</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<section class="home-section">
+  <!--  <div class="text">Dashboard</div>-->
+  <!--  <div class="container">-->
+  <router-outlet></router-outlet>
+  <!--  </div>-->
+</section>
+

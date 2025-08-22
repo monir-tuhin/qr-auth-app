@@ -1,0 +1,30 @@
+services:
+  backend:
+    image: monirzaman/qr-code-scan-backend
+    container_name: qr-code-scan-backend
+    build:
+      context: ./AuthentiScan-Backend
+    ports:
+      - '8080:8080'
+    environment:
+          - TZ=Asia/Dhaka
+    networks:
+      - test-network
+
+  frontend:
+    image: monirzaman/qr-code-scan-frontend
+    container_name: qr-code-scan-frontend
+    build:
+      context: ./AuthentiScan-Angular
+    ports:
+      - '8081:80'
+    depends_on:
+      - backend
+    environment:
+      - TZ=Asia/Dhaka
+    networks:
+      - test-network
+
+networks:
+  test-network:
+    driver: bridge
